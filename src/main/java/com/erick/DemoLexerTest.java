@@ -1,17 +1,13 @@
-package erick;
+package com.erick;
 
 import com.erick.Lexer;
 import com.erick.Token;
 import com.erick.Tokens;
-import org.junit.jupiter.api.Test;
 
 import java.io.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class DemoLexerTest
 {
-    @Test
     public void matchId() throws IOException{
         String filePath = "C:\\Users\\erick\\IdeaProjects\\test\\src\\test\\java\\com\\erick\\palabras.txt";
 
