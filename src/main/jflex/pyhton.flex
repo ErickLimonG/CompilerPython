@@ -5,9 +5,6 @@ import static com.erick.Tokens.*;
 %class Lexer
 %type Token
 
-%eofval{
-    return new Token(EOF,null);
-%eofval}
 %%
 "True"     { return new Token(TRUE,yytext()); }
 "False"    { return new Token(FALSE, yytext()); }
@@ -44,41 +41,40 @@ import static com.erick.Tokens.*;
 "nonlocal" { return new Token(NONLOCAL, yytext()); }
 "Async"    { return new Token(ASYNC, yytext()); }
 "Await"    { return new Token(AWAIT, yytext()); }
+[ \t\r\n]+         { return new Token(AWAIT, yytext()); }
 
 [a-zA-Z_][a-zA-Z0-9_]* { return new Token(IDENTIFIER, yytext()); }
 
 \d+ { return new Token(INTEGER, yytext()); }
 \d+\.\d+ { return new Token(FLOAT, yytext()); }
 
-\+       { return new Token(PLUS, yytext()); }
-\-       { return new Token(MINUS, yytext()); }
-\*       { return new Token(MULTIPLY, yytext()); }
-\/       { return new Token(DIVIDE, yytext()); }
+"+"       { return new Token(PLUS, yytext()); }
+"-"       { return new Token(MINUS, yytext()); }
+"*"       { return new Token(MULTIPLY, yytext()); }
+"/"       { return new Token(DIVIDE, yytext()); }
+"\\"      { return new Token(BACK_SLASH, yytext()); }
 
-"=="       { return new Token(EQUAL, yytext()); }
+"="        { return new Token(EQUAL, yytext()); }
+"=="       { return new Token(DOUBLE_EQUAL, yytext()); }
 "!="       { return new Token(NOT_EQUAL, yytext()); }
 "<"        { return new Token(LESS_THAN, yytext()); }
 ">"        { return new Token(GREATER_THAN, yytext()); }
 "<="       { return new Token(LESS_EQUAL, yytext()); }
 ">="       { return new Token(GREATER_EQUAL, yytext()); }
 
-&&       { return new Token(AND, yytext()); }
-\|\|     { return new Token(OR, yytext()); }
-"!"        { return new Token(NOT, yytext()); }
+"|"       { return new Token(PIPE, yytext()); }
+"{"       { return new Token(LBRACE, yytext()); }
+"}"       { return new Token(RBRACE, yytext()); }
+"["       { return new Token(LBRACKET, yytext()); }
+"]"       { return new Token(RBRACKET, yytext()); }
+","       { return new Token(COMMA, yytext()); }
+";"       { return new Token(SEMICOLON, yytext()); }
+"."       { return new Token(DOT, yytext()); }
 
-\|       { return new Token(PIPE, yytext()); }
-\{       { return new Token(LBRACE, yytext()); }
-\}       { return new Token(RBRACE, yytext()); }
-\[       { return new Token(LBRACKET, yytext()); }
-\]       { return new Token(RBRACKET, yytext()); }
-\,       { return new Token(COMMA, yytext()); }
-\;       { return new Token(SEMICOLON, yytext()); }
-\.       { return new Token(DOT, yytext()); }
-
-\#.*$   { return new Token(LINE_COMMENT, yytext()); }
+"#".*   { return new Token(LINE_COMMENT, yytext()); }
 
 /* Cadenas */
 \"([^\"\\\r\n]|\\.)*\"  { return new Token(STRING, yytext()); }
 \'[^\'\n]*\' { return new Token(STRING_SIMPLE, yytext()); }
 
-[^] { return new Token(ERRORCITO, yytext()); }
+. { return new Token(ERRORCITO, yytext()); }
