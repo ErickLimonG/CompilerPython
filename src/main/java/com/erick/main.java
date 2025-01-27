@@ -1,10 +1,15 @@
+
 package com.erick;
 
 import java.io.*;
 
 public class main {
     public void match() throws IOException {
-        String filePath = "C:\\Users\\erick\\IdeaProjects\\test\\src\\main\\java\\com\\erick\\palabras.txt";
+        String filePath = "C:\\Users\\axelp\\OneDrive\\Documentos\\Traductores de lenguaje\\CompilerPython\\src\\main\\java\\com\\erick\\palabras.txt";
+
+        System.out.println("Limon Guevara Erick Antonio ");
+        System.out.println("Piedra Flores Axel Jesus");
+        System.out.println("Rogriguez Martinez Leonardo Javier");
 
         BufferedReader reader = new BufferedReader(new FileReader(filePath));
         String line;
@@ -30,5 +35,10 @@ public class main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        System.out.println("Limon Guevara Erick Antonio ");
+        System.out.println("Piedra Flores Axel Jesus");
+        System.out.println("Rogriguez Martinez Leonardo Javier");
     }
+
 }

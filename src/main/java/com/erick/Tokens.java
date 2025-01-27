@@ -62,5 +62,13 @@ public enum Tokens {
     LINE_COMMENT,
     STRING,
     STRING_SIMPLE,
-    ERRORCITO
+    COLON,
+    MODULE,
+    ERRORCITO,
+    OR_BITWISE,
+    XOR_BITWISE,
+    NOT_BITWISE,
+    SHIFT_LEFT,
+    SHIFT_RIGHT,
+    AND_BITWISE,
 }

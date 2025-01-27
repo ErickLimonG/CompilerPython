@@ -61,6 +61,7 @@ import static com.erick.Tokens.*;
 ">"        { return new Token(GREATER_THAN, yytext()); }
 "<="       { return new Token(LESS_EQUAL, yytext()); }
 ">="       { return new Token(GREATER_EQUAL, yytext()); }
+"%"       { return new Token(MODULE, yytext()); }
 
 "|"       { return new Token(PIPE, yytext()); }
 "{"       { return new Token(LBRACE, yytext()); }
@@ -69,9 +70,18 @@ import static com.erick.Tokens.*;
 "]"       { return new Token(RBRACKET, yytext()); }
 ","       { return new Token(COMMA, yytext()); }
 ";"       { return new Token(SEMICOLON, yytext()); }
+":"       { return new Token(COLON, yytext()); }
 "."       { return new Token(DOT, yytext()); }
 
 "#".*   { return new Token(LINE_COMMENT, yytext()); }
+
+# Operadores adicionales
+"|"       { return new Token(OR_BITWISE, yytext()); }
+"^"       { return new Token(XOR_BITWISE, yytext()); }
+"~"       { return new Token(NOT_BITWISE, yytext()); }
+"<<"      { return new Token(SHIFT_LEFT, yytext()); }
+">>"      { return new Token(SHIFT_RIGHT, yytext()); }
+"&"     { return new Token(AND_BITWISE, yytext()); }
 
 /* Cadenas */
 \"([^\"\\\r\n]|\\.)*\"  { return new Token(STRING, yytext()); }
