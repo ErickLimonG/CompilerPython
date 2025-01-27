@@ -41,7 +41,7 @@ import static com.erick.Tokens.*;
 "nonlocal" { return new Token(NONLOCAL, yytext()); }
 "Async"    { return new Token(ASYNC, yytext()); }
 "Await"    { return new Token(AWAIT, yytext()); }
-[ \t\r\n]+         { return new Token(AWAIT, yytext()); }
+[ \t\r\n]+         { return new Token(WHITESPACE, yytext()); }
 
 [a-zA-Z_][a-zA-Z0-9_]* { return new Token(IDENTIFIER, yytext()); }
 

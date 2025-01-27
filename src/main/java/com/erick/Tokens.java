@@ -71,4 +71,5 @@ public enum Tokens {
     SHIFT_LEFT,
     SHIFT_RIGHT,
     AND_BITWISE,
+    WHITESPACE,
 }
